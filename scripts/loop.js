@@ -10,6 +10,7 @@ for (i = 0; i < 3; i++) {
             // 跳出 loop1 迴圈
             continue loop1;
         }
-        console.log('i = ' + i + ', j = ' + j +" ");
+        console.log(`i = ${i}, j = ${j} `);
+        //console.log('i = ' + i + ', j = ' + j +" ");
     }
 }
