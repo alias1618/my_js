@@ -19,3 +19,5 @@ console.log(dateMonth);
 console.log(dateDay);
 
 console.log(`${years} ${dateMonth} ${dateDay}`);
+
+document.getElementById("demo").innerHTML = months[d.getMonth()];
