@@ -170,11 +170,11 @@ console.log(newArray)
 //使用方法 : 
 
 /* 定義一個array，其值包含數字 0 ~ 5 依序排列 */
-var array = [0, 1, 2, 3, 4, 5]
+var array = [10, 11, 12, 13, 14, 15]
 
 
 /* 目的 : 從array中找到數字2的index */
-var targetIndex = array.indexOf(2)
+var targetIndex = array.indexOf(15)
 
 /* 輸出targetIndex */
 console.log(targetIndex)
