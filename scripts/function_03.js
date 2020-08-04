@@ -53,6 +53,8 @@ console.log(add.call(o, 40, 30)); // 60
 
 */
 
+
+/*
 function add(num1, num2) {
     return this.num + num1 ;
     //return this.num + num1 + num2;
@@ -65,3 +67,35 @@ var args = [20, 30];
 console.log(add.apply(o1, args)); // 60
 console.log(add.apply(o2, args)); // 150
 
+*/
+
+
+/*
+function toString() {
+    return this.name;
+}
+
+var p1 = {
+    name     : 'Justin', 
+    toString : toString
+};
+
+var p2 = {
+    name     : 'momor', 
+    toString : toString
+};
+
+console.log(p1.toString());        // Justin
+console.log(p2.toString());        // momor
+console.log(p1.toString.call(p2)); // momor
+*/
+
+
+var o = {
+    name : 'Justin',
+    toString : function() {
+        return this.name;
+    }
+};
+
+console.log(o.toString()); // Justin
