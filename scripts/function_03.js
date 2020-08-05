@@ -90,7 +90,7 @@ console.log(p2.toString());        // momor
 console.log(p1.toString.call(p2)); // momor
 */
 
-
+/*
 var o = {
     name : 'Justin',
     toString : function() {
@@ -99,3 +99,46 @@ var o = {
 };
 
 console.log(o.toString()); // Justin
+
+*/
+
+
+var global = global || (function() {
+    return this;
+})();
+
+
+/*
+function func() {
+    function inner() {
+        return this;
+    }
+    return inner();
+}
+
+console.log(func() === global);    // true
+
+var o1 = {func : func};
+
+console.log(o1.func() === o1);         // false
+console.log(o1.func() === global);     // true
+console.log(func.call(o1) === global); // true
+
+*/
+
+
+function func() {
+    function inner() {
+        return this;
+    }
+    this.inner = inner;
+    return this.inner();
+}
+
+console.log(func() === global);            // true
+
+var o1 = {func : func};
+
+console.log(o1.func() === o1);                // true
+console.log(o1.func.call(global) === global); // true
+console.log(func.call(o1) === global);        // false
