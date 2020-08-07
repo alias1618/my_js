@@ -126,7 +126,7 @@ console.log(func.call(o1) === global); // true
 
 */
 
-
+/*
 function func() {
     function inner() {
         return this;
@@ -142,3 +142,43 @@ var o1 = {func : func};
 console.log(o1.func() === o1);                // true
 console.log(o1.func.call(global) === global); // true
 console.log(func.call(o1) === global);        // false
+
+*/
+
+
+'use strict'
+/*
+ (function() {
+     return this;
+ })();  // undefined
+*/
+
+
+ var global = global || Function('return this')();
+
+
+ var get = eval;
+ var global = global || get('this');
+
+ var global = global || (0, eval)('this');
+
+
+ var obj = {
+    '0' : 100,
+    '1' : 200,
+    '2' : 300,
+    length : 3,
+    forEach : function(callback) {
+        for(var i = 0; i < this.length; i++) {
+            callback(this[i]);
+        }
+    }
+};
+
+
+obj.forEach(function(elem) {
+    console.log(elem);
+});
+
+
+
