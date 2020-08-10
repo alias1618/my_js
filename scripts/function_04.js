@@ -38,7 +38,7 @@ console.log(sum); // 15
 */
 
 
-
+/*
 function doSome() {
     var x = 10;
     function f(y) {
@@ -53,3 +53,17 @@ var foo2 = doSome();
 console.log(foo1(20));  // 30
 console.log(foo2(20));  // 30
 
+*/
+
+
+//scope chain
+
+
+var x = 10;
+function outer() {
+    var y = 20;
+    function inner() {
+        var z = 30;
+    }
+}
+func();
