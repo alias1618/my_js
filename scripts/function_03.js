@@ -153,7 +153,7 @@ console.log(func.call(o1) === global);        // false
  })();  // undefined
 */
 
-
+/*
  var global = global || Function('return this')();
 
 
@@ -161,8 +161,9 @@ console.log(func.call(o1) === global);        // false
  var global = global || get('this');
 
  var global = global || (0, eval)('this');
+*/
 
-
+/*
  var obj = {
     '0' : 100,
     '1' : 200,
@@ -171,6 +172,7 @@ console.log(func.call(o1) === global);        // false
     forEach : function(callback) {
         for(var i = 0; i < this.length; i++) {
             callback(this[i]);
+            console.log(this[i]);
         }
     }
 };
@@ -179,6 +181,46 @@ console.log(func.call(o1) === global);        // false
 obj.forEach(function(elem) {
     console.log(elem);
 });
+*/
 
+/*
+function forEach(callback) {
+    for(var i = 0; i < this.length; i++) {
+        callback(this[i]);
+    }
+}
 
+var obj1 = {
+    '0' : 100,
+    '1' : 200,
+    '2' : 300,
+    length : 3,
+};
 
+var f1 = forEach.bind(obj1);
+
+f1(function(elem) {
+    console.log(elem);  // 100 200 300
+});
+
+var obj2 = {
+    '0' : 10,
+    '1' : 20,
+    '2' : 30,
+    length : 3,
+    forEach : f1
+};
+
+obj2.forEach(function(elem) {
+    console.log(elem);  // 100 200 300
+});
+
+*/
+
+function plus(a, b) {
+    return a + b;
+}
+
+var addTwo = plus.bind(undefined, 2);
+console.log(addTwo(10, 20));    // 12
+console.log(addTwo(5));     // 7
