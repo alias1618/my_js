@@ -139,7 +139,7 @@ console.log(p.toString());  // [Justin,35]
 */
 
 
-
+/*
 function toString() {
     return '[' + this.name + ',' + this.age + ']';
 }
@@ -156,5 +156,19 @@ var p = person('Justin', 35);
 
 console.log(p.toString());  // [Justin,35]
 
+*/
 
 
+function Nobody()  {
+}
+
+function Person(name, age)  {
+    return [];
+}
+
+var n = new Nobody();
+var p = new Person();
+
+console.log(n instanceof Nobody);  // true
+console.log(p instanceof Person);  // false
+console.log(p instanceof Array);   // true
