@@ -58,7 +58,7 @@ console.log(foo2(20));  // 30
 
 //scope chain
 
-
+/*
 var x = 10;
 function outer() {
     var y = 20;
@@ -66,4 +66,95 @@ function outer() {
         var z = 30;
     }
 }
-func();
+func(); 
+
+*/
+
+
+/*
+function toString() {
+    return '[' + this.name + ',' + this.age + ']';
+}
+
+var p1 = {
+    name     : 'Justin', 
+    age      : 35,
+    toString : toString
+};
+
+var p2 = {
+    name     : 'Monica', 
+    age      : 32,
+    toString : toString
+};
+
+var p3 = {
+    name     : 'Irene', 
+    age      : 2,
+    toString : toString
+};
+
+console.log(p1.toString());  // [Justin,35] 
+console.log(p2.toString());  // [Monica,32] 
+console.log(p3.toString());  // [Irene,2]
+*/
+
+/*
+function toString() {
+    return '[' + this.name + ',' + this.age + ']';
+}
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.toString = toString;
+}
+
+var p1 = new Person('Justin', 35);
+var p2 = new Person('Monica', 32);
+var p3 = new Person('Irene', 2);
+
+
+console.log(p1.toString());  // [Justin,35] 
+console.log(p2.toString());  // [Monica,32] 
+console.log(p3.toString());  // [Irene,2]
+*/
+
+
+/*
+function toString() {
+    return '[' + this.name + ',' + this.age + ']';
+}
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+    this.toString = toString;
+}
+
+var p = {};
+Person.call(p, 'Justin', 35);
+
+console.log(p.toString());  // [Justin,35]
+*/
+
+
+
+function toString() {
+    return '[' + this.name + ',' + this.age + ']';
+}
+
+function person(name, age) {
+    return {
+        name     : name,
+        age      : age,
+        toString : toString
+    };
+}
+
+var p = person('Justin', 35);
+
+console.log(p.toString());  // [Justin,35]
+
+
+
