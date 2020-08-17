@@ -158,7 +158,7 @@ console.log(p.toString());  // [Justin,35]
 
 */
 
-
+/*
 function Nobody()  {
 }
 
@@ -172,3 +172,71 @@ var p = new Person();
 console.log(n instanceof Nobody);  // true
 console.log(p instanceof Person);  // false
 console.log(p instanceof Array);   // true
+
+
+
+function Person() {}
+var p = new Person();
+console.log(p.constructor == Person);  // true
+*/
+
+
+/*
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+var p = new Person('Justin', 35);
+
+console.log(p.name);  // Justin
+console.log(p.age);   // 35
+
+*/
+
+
+/*
+function Person(name, age) {
+    this.getName = function() {
+        return name;
+    };
+
+    this.age = age;
+}
+
+var p = new Person('Justin', 35);
+
+console.log(p.name);       // undefined
+console.log(p.getName());  // Justin
+console.log(p.age);        // 35
+
+*/
+
+
+
+function Account() {
+    var balance = 0;
+
+    this.getBalance = function() {
+        return balance;
+    };
+
+    this.setBalance = function(money) {
+        if(money < 0) {
+            throw new Error('can\'t set negative balance.');
+        }
+        balance = money;
+    };
+}
+
+var acct = new Account();
+
+console.log(acct.getBalance());   // 0
+
+acct.setBalance(1000);
+console.log(acct.getBalance());   // 1000
+
+acct.setBalance(-1000);           // Error: can't set negative balance
+
+
+
