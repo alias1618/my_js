@@ -12,5 +12,3 @@ var p2 = new Person('Momor', 32);
 
 console.log(p1.toString());   // [Justin, 35]
 console.log(p2.toString());   // [Momor, 32]
-
-
