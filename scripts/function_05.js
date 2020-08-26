@@ -92,8 +92,27 @@ var protoOfS = Object.getPrototypeOf(s);
 console.log(Object.getPrototypeOf(protoOfS) === Object.prototype); // true
 */
 
-
+/*
 var arr = [];
 console.log(Array.prototype.isPrototypeOf(arr));              // true
 console.log(Function.prototype.isPrototypeOf(Array));         // true
 console.log(Object.prototype.isPrototypeOf(Array.prototype)); // true
+
+*/
+
+
+
+function Person(name, age) {
+    this.name = name;
+    this.age = age;
+}
+
+Person.prototype.toString = function() {
+    return '[' + this.name + ', ' + this.age + ']';
+};
+
+var p = Object.create(Person.prototype);
+Person.call(p, 'Justin', 35);
+
+console.log(p.toString());         // [Justin,35]
+console.log(p instanceof Person);  // true
