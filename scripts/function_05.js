@@ -101,7 +101,7 @@ console.log(Object.prototype.isPrototypeOf(Array.prototype)); // true
 */
 
 
-
+/*
 function Person(name, age) {
     this.name = name;
     this.age = age;
@@ -116,3 +116,5 @@ Person.call(p, 'Justin', 35);
 
 console.log(p.toString());         // [Justin,35]
 console.log(p instanceof Person);  // true
+
+*/
